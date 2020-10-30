@@ -1,12 +1,14 @@
 # codigos-uteis
 
-Tel-input -> Js para Mascara de input type=tel
+## Tel-input -> Js para Mascara de input type=tel
 
-Como Usar 
+### Como Usar 
 
 ->js dentro do head
 ->maxlength="15" id="telefone"
 
 Ex: Campo input tel
 
-<code><input type="tel" maxlength="15" id="telefone"></code>
+```
+<input type="tel" maxlength="15" id="telefone">
+```
