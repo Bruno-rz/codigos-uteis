@@ -9,4 +9,4 @@ Como Usar
 
 Ex: Campo input tel
 
-<input type="tel" maxlength="15" id="telefone">
+<code><input type="tel" maxlength="15" id="telefone"></code>
