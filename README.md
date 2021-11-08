@@ -2,6 +2,8 @@
 
 ## Page Query -> WP Query Wordpress dentro de uma Page
 
+## Query Format post -> WP Query para Formato de post
+
 ## Tel-input -> Js para Mascara de input type=tel
 
 ### Como Usar 
