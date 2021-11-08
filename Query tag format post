@@ -1,0 +1,58 @@
+<section id="secao-5">
+	<div class="container">
+		<div class="row justify-content-center justify-content-lg-between">
+			<div class="col-12">
+				<h3 class="titulo-sec">PARA VER AGORA</h3>
+				<hr class="hr-black">
+			</div>
+
+			<?php
+			$args5 = array(
+				'post_type' => 'post',
+				'posts_per_page' => '3',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'post_format',
+						'field'    => 'slug',
+						'terms'    => array('post-format-video'),
+					),
+				),
+			);
+
+			$posts5 = get_posts($args5);
+
+			if ($posts5) {
+				foreach ($posts5 as $post) :
+					setup_postdata($post);
+			?>
+
+					<div class="col-lg-4 max-408">
+
+						<div class="ratio ratio-16x9">
+							<iframe src="<?php the_field('video'); ?>" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+						</div>
+
+						<a href="<?php the_permalink(); ?>">
+							<h4 class="titulo"><?php the_title(); ?></h4>
+							<p class="texto mt-2"><?php echo get_the_excerpt(); ?></p>
+						</a>
+
+						<div class="d-flex align-items-center justify-content-lg-end ">
+							<h6 class="texto-menor">COMPARTILHE: </h6>
+							<?php echo do_shortcode('[addtoany]'); ?>
+						</div>
+					</div>
+
+			<?php
+				endforeach;
+				wp_reset_postdata();
+			}
+			?>
+
+			<div class="col-12 text-center mt-56">
+				<a href="<?= bloginfo('wpurl') ?>/tag/video/" class="ver_mais">VER TUDO EM VÍDEOS</a>
+			</div>
+
+		</div>
+	</div>
+</section>
