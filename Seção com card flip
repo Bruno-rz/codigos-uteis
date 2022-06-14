@@ -1,1 +1,89 @@
+<?php if (have_rows('bloco_5')) : while (have_rows('bloco_5')) : the_row(); ?>
+
+		<section id="bloco-5" style="background-image: url(<?php the_sub_field('imagem_fundo'); ?>);">
+			<div class="container-fluid">
+				<div class="row justify-content-end">
+					<div class="col-lg-6 p-0">
+						<div style="overflow: hidden;">
+							<h2 data-aos="fade-left" data-aos-duration="500" class="font_40"><?php the_sub_field('campo_de_texto'); ?></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row justify-items-center">
+					<div class="col-lg-12">
+						<div class="row">
+
+							<?php if (have_rows('itens')) : while (have_rows('itens')) : the_row(); ?>
+
+									<div class="col">
+										<div class="flip-container">
+											<div class="flipper">
+												<div class="front">
+													<div class="d-flex align-items-end justify-content-center box-card-1 text-center" style="background-image: url(<?php bloginfo('wpurl'); ?>/wp-content/uploads/2022/06/sfundo-cinza.png), url(<?php the_sub_field('imagem'); ?>);">
+														<div class="w-100">
+															<hr class="card-flip-hr">
+															<h3 class="font_25"><?php the_sub_field('campo_de_texto_1'); ?></h3>
+														</div>
+													</div>
+												</div>
+												<div class="back">
+													<div class="d-flex align-items-end justify-content-center box-card-1 text-center" style="background-color: #242424;">
+														<div class="m-4">
+															<h3 class="font_25"><?php the_sub_field('campo_de_texto_1'); ?></h3>
+															<br>
+															<h6 class="font_20"><?php the_sub_field('campo_de_texto_2'); ?></h6>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								<?php endwhile;
+							else : ?>
+							<?php endif; ?>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<?php endwhile;
+else : ?>
+<?php endif; ?>
+
+<style>
+
+/* Card */
+.flip-container {
+  width: 352px;
+  height: 378px;
+  perspective: 1000px;
+  margin: clamp(10px, 5vw, 30px) auto;
+}
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+.flipper {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.back {
+  transform: rotateY(180deg);
+}
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+</style>
 
