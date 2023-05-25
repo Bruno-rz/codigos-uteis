@@ -1,0 +1,47 @@
+      // codigo para adicianr uma class depois q ela some da tela > scrol a tela 
+      
+  <script>
+      (function ($) {
+        var item = $("#mainNav"),
+          top = item.offset().top;
+        $(window).scroll(function () {
+          $(window).scrollTop() > top
+            ? item.addClass("sticky")
+            : item.removeClass("sticky");
+        });
+      })(jQuery);
+    </script>
+    
+
+// codigo para contador de numeros crescentes  pelo parametro data count to   <h2><span class="counter-up" data-count-to="250"></span></h2>
+          
+            
+        <script>
+      setTimeout(function () {
+        const tempo_intervalo = 5; //ms -> define a velocidade da animação
+        const tempo = 10000; //ms -> define o tempo total da animaçao
+
+        $(".counter-up").each(function () {
+          let count_to = parseInt($(this).data("countTo"));
+          let intervalos = tempo / tempo_intervalo; //quantos passos de animação tem
+          let incremento = count_to / intervalos; //quanto cada contador deve aumentar
+          let valor = 0;
+          let el = $(this);
+
+          let timer = setInterval(function () {
+            if (valor >= count_to) {
+              //se já contou tudo tem de parar o timer
+              valor = count_to;
+              clearInterval(timer);
+            }
+
+            let texto = valor
+              .toFixed(0)
+              .toString()
+              .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+            el.text(texto);
+            valor += incremento;
+          }, tempo_intervalo);
+        });
+      }, 1000);
+    </script>
